@@ -7,10 +7,10 @@
           <span><img src="assets/logo.PNG" alt="" srcset=""></span>
           <span>Zedi Esports</span>
         </div>
-        <h1>Sign Up</h1>
+        <h1>Log In</h1>
         <p>It's not long before you embark on this journey! </p>
 
-        <form class="flex-c">
+        <form class="flex-c" [formGroup]="LogInForm" novalidate>
           <div class="input-box">
             <span class="label">E-mail</span>
             <div class=" flex-r input">
@@ -22,24 +22,23 @@
           <div class="input-box">
             <span class="label">Password</span>
             <div class="flex-r input">
-              <input type="password" placeholder="8+ (a, A, 1, #)">
-              <i class="fas fa-lock"></i>
+              <input type="password" [type]="showPassword ? 'text' : 'password'" placeholder="8+ (a, A, 1, #)">
+              <span> <i class="bi " [ngClass]="{
+                'bi-eye-slash-fill': !showPassword,
+                'bi-eye-fill': showPassword}" (click)="togglePasswordVisibility()"></i></span>
             </div>
           </div>
 
-          <div class="check">
-            <input type="checkbox" name="" id="">
-            <span>I've read and agree with T&C</span>
-          </div>
-
-          <input class="btn" type="submit" value="Create an Account">
+       
+          <button class="btn1 btn" type="submit">
+            LogIn
+          </button>
           <span class="extra-line">
             <span>Already have an account?</span>
-            <a href="#">Sign In</a>
+            <button type="button" class="btn btn-link" routerLink="/User/SignUp">Sign In</button>
           </span>
         </form>
-        
-
+  
       </div>
     </div>
   </div>
