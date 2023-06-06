@@ -12,6 +12,8 @@ import { SignUpComponent } from './User/sign-up/sign-up.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeBlogComponent } from './Home/home-blog/home-blog.component';
 import { BlogDetailComponent } from './Home/blog-detail/blog-detail.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContantUsComponent } from './contant-us/contant-us.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,9 @@ import { BlogDetailComponent } from './Home/blog-detail/blog-detail.component';
     LoginComponent,
     SignUpComponent,
     HomeBlogComponent,
-    BlogDetailComponent
+    BlogDetailComponent,
+    AboutUsComponent,
+    ContantUsComponent
   ],
   imports: [
     BrowserModule,
