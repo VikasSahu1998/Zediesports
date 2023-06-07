@@ -20,9 +20,9 @@ const routes: Routes = [
     path: 'Home/User/Blog', component: BlogDetailComponent
   },
   {
-    path: 'Home', component: HomeBlogComponent
+    path: '', component: HomeBlogComponent
   },
-  { path: 'Home', redirectTo: 'Home', pathMatch: 'full' },
+  { path: '', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({
