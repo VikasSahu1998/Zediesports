@@ -14,6 +14,7 @@ import { HomeBlogComponent } from './Home/home-blog/home-blog.component';
 import { BlogDetailComponent } from './Home/blog-detail/blog-detail.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContantUsComponent } from './contant-us/contant-us.component';
+import { CareerComponent } from './career/career.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { ContantUsComponent } from './contant-us/contant-us.component';
     HomeBlogComponent,
     BlogDetailComponent,
     AboutUsComponent,
-    ContantUsComponent
+    ContantUsComponent,
+    CareerComponent
   ],
   imports: [
     BrowserModule,

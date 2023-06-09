@@ -5,8 +5,12 @@ import { SignUpComponent } from './User/sign-up/sign-up.component';
 import { HomeBlogComponent } from './Home/home-blog/home-blog.component';
 import { BlogDetailComponent } from './Home/blog-detail/blog-detail.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { CareerComponent } from './career/career.component';
 
 const routes: Routes = [
+  {
+    path: 'Career', component: CareerComponent
+  },
   {
     path: 'AboutUs', component: AboutUsComponent
   },

@@ -1,0 +1,119 @@
+/* Hero */
+.l-hero {
+    $s-root: &;
+    $s-hero-scale-ratio: 9 / 16;
+    // Values grabbed from the designs
+    $s-img-width-ratio: 1440 / 1920;
+    $s-title-width-ratio: 740 / 1920;
+
+    max-width: 100vw;
+
+    // Image
+    &__img {
+        &-inner {
+            height: auto;
+            width: 100%;
+        }
+    }
+
+    // Card
+    &__pulled {
+        &-inner {
+            margin: 0 5%;
+            padding: 10%;
+            background: #fff;
+            transform: translateY(-20%);
+        }
+    }
+
+    @media (min-width: 700px) {
+        height: 100vw * $s-hero-scale-ratio;
+        position: relative;
+
+        // Image
+        &__img {
+            height: 75%;
+            width: percentage($s-img-width-ratio);
+            border: 2vw solid #fff;
+            overflow: hidden;
+
+            &-inner {
+                height: 100%;
+                object-fit: cover;
+                object-position: 50% 50%;
+            }
+        }
+
+        // Card
+        &__pulled {
+            height: 100%;
+            width: percentage($s-title-width-ratio);
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+
+            &-inner {
+                width: 100%;
+                margin: 0;
+                padding: 20%;
+                transform: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        // Left 
+        &--left {
+
+            // Image
+            #{$s-root}__img {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+
+            // Pulled
+            #{$s-root}__pulled {
+                left: 0;
+                right: auto;
+            }
+        }
+    }
+}
+
+/* Card */
+.c-card {
+    >* {
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+/* General page styling */
+
+.c-card__subtitle {
+    margin: .5em 0;
+    font-size: 1em;
+    font-weight: normal;
+}
+
+.c-card__title {
+    display: inline-block;
+    margin: 0;
+    padding: .2em 0;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+}
+
+
+.c-card__title span {
+    color: rgb(169, 185, 185);
+}
