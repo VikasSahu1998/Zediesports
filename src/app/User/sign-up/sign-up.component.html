@@ -9,48 +9,85 @@
         <h1>Sign Up</h1>
         <p>It's not long before you embark on this journey! </p>
 
-        <form class="flex-c" [formGroup]="SignUpForm" novalidate>
+        <form class="flex-c" [formGroup]="SignUpForm" (ngSubmit)="onsingupsubmit()" novalidate>
 
           <div class="input-box">
-            <span class="label">name</span>
+            <span class="label">Full-Name</span>
             <div class=" flex-r input">
-              <input type="email" placeholder="Full Name">
+              <input type="text" placeholder="Full Name" formControlName="name" required>
               <i class="bi bi-pencil-fill"></i>
             </div>
-            <div *ngIf="SignUpForm.controls['name'].invalid && SignUpForm.controls['name'].touched"
-              class="alert alert-danger">
-              <div *ngIf="SignUpForm.controls['name'].errors.required">
-                Name is required.
-              </div>
+            <div
+            *ngIf="SignUpForm.get('name').invalid && (SignUpForm.get('name').dirty || SignUpForm.get('name').touched)"
+            class="alert alert-danger mt-2">
+            <div *ngIf="SignUpForm.get('name').errors.required">
+              Name is <strong>required.</strong>
             </div>
+            <div *ngIf="SignUpForm.get('name').errors.nullValidator">
+              Name is <strong>required.</strong>
+            </div>
+            <div *ngIf="SignUpForm.get('name').errors.email">
+              Please enter a valid <strong>Email address</strong>
+            </div>
+            <!-- <div *ngIf="SignUpForm.get('email').errors.minlength">
+            Name must be at least 2 characters long.
+          </div> -->
+          </div>
           </div>
 
           <div class="input-box">
             <span class="label">E-mail</span>
             <div class=" flex-r input">
-              <input type="email" placeholder="name@abc.com">
-              <i class="fas fa-at"></i>
+              <input type="email" placeholder="name@abc.com" formControlName="email" required>
+              <i class="bi bi-envelope-at-fill"></i>
             </div>
-            <div *ngIf="SignUpForm.controls['email'].invalid && SignUpForm.controls['email'].touched"
-              class="alert alert-danger">
-              <div *ngIf="SignUpForm.controls['email'].errors.required">
-                Email is required.
+            <div
+              *ngIf="SignUpForm.get('email').invalid && (SignUpForm.get('email').dirty || SignUpForm.get('email').touched)"
+              class="alert alert-danger mt-2">
+              <div *ngIf="SignUpForm.get('email').errors.required">
+                Email is <strong>required.</strong>
               </div>
+              <div *ngIf="SignUpForm.get('email').errors.nullValidator">
+                Email is <strong>required.</strong>
+              </div>
+              <div *ngIf="SignUpForm.get('email').errors.email">
+                Please enter a valid <strong>Email address</strong>
+              </div>
+              <!-- <div *ngIf="SignUpForm.get('email').errors.minlength">
+              Name must be at least 2 characters long.
+            </div> -->
             </div>
           </div>
 
           <div class="input-box">
             <span class="label">Phone Number</span>
             <div class=" flex-r input">
-              <input type="number" placeholder="7896542586">
+              <span class="input-group-text" >+91</span>
+              <input type="number" placeholder="7896542586" formControlName="PhoneNumber" required>
               <i class="bi bi-telephone-fill"></i>
             </div>
+            <div
+            *ngIf="SignUpForm.get('PhoneNumber').invalid && (SignUpForm.get('PhoneNumber').dirty || SignUpForm.get('PhoneNumber').touched)"
+            class="alert alert-danger mt-2">
+            <div *ngIf="SignUpForm.get('PhoneNumber').errors.required">
+              Phone Number is <strong>required.</strong>
+            </div>
+            <div *ngIf="SignUpForm.get('PhoneNumber').errors.nullValidator">
+              Phone Number is <strong>required.</strong>
+            </div>
+            <div *ngIf="SignUpForm.get('PhoneNumber').errors.maxLength">
+              PhoneNumber must be at least <strong>10 characters long</strong>
+            </div>
+            <div *ngIf="SignUpForm.get('PhoneNumber').errors.minlength">
+            PhoneNumber must be at least 10 characters long.
+          </div>
+          </div>
           </div>
 
           <div class="input-box">
             <span class="label">Password</span>
             <div class="flex-r input">
-              <input type="password" [type]="showPassword ? 'text' : 'password'" placeholder="8+ (a, A, 1, #)">
+              <input type="password" [type]="showPassword ? 'text' : 'password'" placeholder="8+ (a, A, 1, #)" formControlName="password">
 
               <span> <i class="bi " [ngClass]="{
                 'bi-eye-slash-fill': !showPassword,
@@ -61,11 +98,14 @@
           <div class="input-box">
             <span class="label">Confirm Password</span>
             <div class="flex-r input">
-              <input type="password" [type]="showPassword ? 'text' : 'password'" placeholder="8+ (a, A, 1, #)">
+              <input type="password" [type]="showPassword ? 'text' : 'password'" placeholder="8+ (a, A, 1, #)" formControlName="confirmPassword">
               <span> <i class="bi " [ngClass]="{
                 'bi-eye-slash-fill': !showPassword,
                 'bi-eye-fill': showPassword}" (click)="togglePasswordVisibility()"></i></span>
             </div>
+            <span *ngIf="passwordMatchError">
+              Password does not match
+          </span>
           </div>
 
           <div class="check">
@@ -73,7 +113,7 @@
             <span>I've read and agree with T&C</span>
           </div>
 
-          <input class="btn" type="submit" value="Create an Account">
+          <button class="btn" type="submit" value="Create an Account">Create an Account</button>
 
         </form>
 
