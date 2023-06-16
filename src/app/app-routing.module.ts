@@ -6,8 +6,16 @@ import { HomeBlogComponent } from './Home/home-blog/home-blog.component';
 import { BlogDetailComponent } from './Home/blog-detail/blog-detail.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CareerComponent } from './career/career.component';
+import { IGCComponent } from './EsportsNews/igc/igc.component';
+import { WGCComponent } from './EsportsNews/wgc/wgc.component';
 
 const routes: Routes = [
+  {
+    path: 'EsportsNews/IGC', component: IGCComponent
+  },
+  {
+    path: 'EsportsNews/WGC', component: WGCComponent
+  },
   {
     path: 'Career', component: CareerComponent
   },

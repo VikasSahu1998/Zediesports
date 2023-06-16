@@ -15,6 +15,8 @@ import { BlogDetailComponent } from './Home/blog-detail/blog-detail.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContantUsComponent } from './contant-us/contant-us.component';
 import { CareerComponent } from './career/career.component';
+import { IGCComponent } from './EsportsNews/igc/igc.component';
+import { WGCComponent } from './EsportsNews/wgc/wgc.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,9 @@ import { CareerComponent } from './career/career.component';
     BlogDetailComponent,
     AboutUsComponent,
     ContantUsComponent,
-    CareerComponent
+    CareerComponent,
+    IGCComponent,
+    WGCComponent
   ],
   imports: [
     BrowserModule,
