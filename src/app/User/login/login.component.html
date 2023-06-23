@@ -9,7 +9,7 @@
         <h1>Log In</h1>
         <p>It's not long before you embark on this journey! </p>
 
-        <form class="flex-c" [formGroup]="LogInForm" novalidate>
+        <form class="flex-c" [formGroup]="LogInForm" novalidate (ngSubmit)="onsubmit()">
           <div class="input-box">
             <span class="label">E-mail</span>
             <div class=" flex-r input">
@@ -35,29 +35,26 @@
               </div>
           </div>
 
-
-
-
           <div class="input-box">
             <span class="label">Password</span>
             <div class="flex-r input">
-              <input type="password" [type]="showPassword ? 'text' : 'password'" placeholder="8+ (a, A, 1, #)">
+              <input type="password" [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="8+ (a, A, 1, #)">
               <span> <i class="bi " [ngClass]="{
                 'bi-eye-slash-fill': !showPassword,
                 'bi-eye-fill': showPassword}" (click)="togglePasswordVisibility()"></i></span>
             </div>
             <div
-                *ngIf="LogInForm.get('Passcode').invalid && (LogInForm.get('Passcode').dirty || LogInForm.get('Passcode').touched)"
+                *ngIf="LogInForm.get('password').invalid && (LogInForm.get('password').dirty || LogInForm.get('password').touched)"
                 class="alert alert-danger mt-2">
-                <div *ngIf="LogInForm.get('Passcode').errors.required">
-                  Passcode is <strong>required.</strong> 
+                <div *ngIf="LogInForm.get('password').errors.required">
+                  password is <strong>required.</strong> 
                 </div>
-                <div *ngIf="LogInForm.get('Passcode').errors.nullValidator">
-                  Passcode is <strong>required.</strong> 
+                <div *ngIf="LogInForm.get('password').errors.nullValidator">
+                  password is <strong>required.</strong> 
                 </div>
-                <div *ngIf="LogInForm.get('Passcode').errors.pattern">
+                <!-- <div *ngIf="LogInForm.get('password').errors.pattern">
                   Please enter a valid  <strong>password</strong>
-                </div>
+                </div> -->
                 <!-- <div *ngIf="LogInForm.get('email').errors.minlength">
                   Name must be at least 2 characters long.
                 </div> -->
@@ -65,7 +62,7 @@
           </div>
 
 
-          <button class="btn1 btn" type="submit">
+          <button class="btn1 btn" type="submit" >
             LogIn
           </button>
           <span class="extra-line">

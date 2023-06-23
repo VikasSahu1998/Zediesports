@@ -9,11 +9,16 @@ import { AboutUsComponent } from './User/about-us/about-us.component';
 import { BlogDetailComponent } from './User/Home/blog-detail/blog-detail.component';
 import { HomeBlogComponent } from './User/Home/home-blog/home-blog.component';
 import { DashboardComponent } from './User/dashboard/dashboard.component';
+import {  canActivate,  redirectLoggedInTo,  redirectUnauthorizedTo,} from '@angular/fire/auth-guard';
 
+
+// const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['User/Login']);
+// const redirectLoggedInToHome = () => redirectLoggedInTo(['user/dashboard']);
 
 const routes: Routes = [
   {
-    path: 'user/dashboard', component: DashboardComponent
+    path: 'user/dashboard', component: DashboardComponent,
+    
   },
   {
     path: 'EsportsNews/IGC', component: IGCComponent
@@ -40,7 +45,8 @@ const routes: Routes = [
     path: '', component: HomeBlogComponent
   },
   {
-    path: '', redirectTo: '', pathMatch: 'full'
+    path: '', redirectTo: '', pathMatch: 'full',
+    component: HomeBlogComponent,
 
   },
 ];

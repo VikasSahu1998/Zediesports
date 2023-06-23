@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +8,17 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  displayedButton = 1;
-
-  onChangeStateClick() {
  
-    this.displayedButton = this.displayedButton === 1 ? 2 : 1;
+  constructor(
+    public authService: AuthService,
+    
+    private router: Router
+  ) {}
+ 
+
+  logout() {
+    this.authService.logout().subscribe(() => {
+      this.router.navigate(['/']);
+    });
   }
 }

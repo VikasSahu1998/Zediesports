@@ -14,7 +14,13 @@ import { CareerComponent } from './User/career/career.component';
 import { ContantUsComponent } from './User/contant-us/contant-us.component';
 import { IGCComponent } from './User/EsportsNews/igc/igc.component';
 import { WGCComponent } from './User/EsportsNews/wgc/wgc.component';
-import { DashboardComponent } from './Admin/dashboard/dashboard.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { DashboardComponent } from './User/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +42,12 @@ import { DashboardComponent } from './Admin/dashboard/dashboard.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage())
   ],
   providers: [],
   bootstrap: [AppComponent]
