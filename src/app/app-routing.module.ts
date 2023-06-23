@@ -12,12 +12,14 @@ import { DashboardComponent } from './User/dashboard/dashboard.component';
 import {  canActivate,  redirectLoggedInTo,  redirectUnauthorizedTo,} from '@angular/fire/auth-guard';
 
 
-// const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['User/Login']);
-// const redirectLoggedInToHome = () => redirectLoggedInTo(['user/dashboard']);
+const redirectToLogin = () => redirectUnauthorizedTo(['User/Login']);
+
+const redirectToHome = () => redirectLoggedInTo(['user/dashboard']);
 
 const routes: Routes = [
   {
     path: 'user/dashboard', component: DashboardComponent,
+    ...canActivate(redirectToLogin)
     
   },
   {
@@ -33,10 +35,12 @@ const routes: Routes = [
     path: 'AboutUs', component: AboutUsComponent
   },
   {
-    path: 'User/Login', component: LoginComponent
+    path: 'User/Login', component: LoginComponent,
+    ...canActivate(redirectToHome)
   },
   {
-    path: 'User/SignUp', component: SignUpComponent
+    path: 'User/SignUp', component: SignUpComponent,
+    ...canActivate(redirectToHome)
   },
   {
     path: 'Home/User/Blog', component: BlogDetailComponent
