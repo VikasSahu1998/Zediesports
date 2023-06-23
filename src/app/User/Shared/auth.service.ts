@@ -16,11 +16,14 @@ import { concatMap, from, Observable, of, switchMap } from 'rxjs';
 export class AuthService {
   currentUser$ = authState(this.auth);
 
-  constructor(private auth: Auth) {}
+  constructor(private auth: Auth) { }
 
-  signUp(email: string, password: string): Observable<UserCredential> {
-    return from(createUserWithEmailAndPassword(this.auth, email, password));
+  signUp(name: string, email: string, password: string) {
+    return from(createUserWithEmailAndPassword(this.auth, email, password)).pipe(
+      switchMap(({ user }) => updateProfile(user, { displayName: name })));
   }
+
+
 
   login(email: string, password: string): Observable<any> {
     return from(signInWithEmailAndPassword(this.auth, email, password));

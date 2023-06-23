@@ -11,9 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   LogInForm: FormGroup | any;;
   public showPassword: boolean = false;
-  constructor(private formbuilder: FormBuilder, private authService: AuthService, private router: Router,) {
-
-  }
+  constructor(private formbuilder: FormBuilder, private authService: AuthService, private router: Router,) {  }
 
 
   ngOnInit(): void {
