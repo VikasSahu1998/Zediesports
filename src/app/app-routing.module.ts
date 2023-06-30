@@ -10,6 +10,7 @@ import { BlogDetailComponent } from './User/Home/blog-detail/blog-detail.compone
 import { HomeBlogComponent } from './User/Home/home-blog/home-blog.component';
 import { DashboardComponent } from './User/dashboard/dashboard.component';
 import {  canActivate,  redirectLoggedInTo,  redirectUnauthorizedTo,} from '@angular/fire/auth-guard';
+import { AddpostComponent } from './User/dashboard/addpost/addpost.component';
 
 
 const redirectToLogin = () => redirectUnauthorizedTo(['User/Login']);
@@ -19,6 +20,11 @@ const redirectToHome = () => redirectLoggedInTo(['user/dashboard']);
 const routes: Routes = [
   {
     path: 'user/dashboard', component: DashboardComponent,
+    ...canActivate(redirectToLogin)
+    
+  },
+  {
+    path: 'user/Addpost', component: AddpostComponent,
     ...canActivate(redirectToLogin)
     
   },

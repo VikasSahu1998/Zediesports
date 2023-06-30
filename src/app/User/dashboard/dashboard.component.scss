@@ -1,0 +1,26 @@
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: auto;
+    margin-left: -150px;
+}
+
+li button {
+  width: 60%;
+  margin-top: 10%;
+}
+
+li button.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+li button:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+
+

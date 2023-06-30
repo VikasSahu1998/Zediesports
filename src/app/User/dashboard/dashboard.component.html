@@ -1,4 +1,33 @@
-
-<ng-container *ngIf="user$ | async as user" >
-    <h1>Welcome to the home page, {{user.displayName}}</h1>
-</ng-container>
+<div class="container">
+  <div class="row">
+    <input type="hidden" #selection>
+    <div class="col-sm-2">
+      <ul class="text-center ">
+        <li><button class="btn btn-outline-success" routerLink="/user/dashboard">Dashboard</button></li>
+        <li><button class="btn btn-outline-success" (click)="selection.value = 'My Blogs'">My Blogs</button></li>
+        <li><button class="btn btn-outline-success"(click)="selection.value = 'Add New Blogs'">Add New Blogs</button></li>
+        <li><button class="btn btn-outline-success" (click)="selection.value = 'Setting'">Setting</button></li>
+      </ul>
+    </div>
+    <div class="col-lg-10" [ngSwitch]="selection.value">
+    
+      <ng-container *ngSwitchDefault>
+        <h1 *ngIf="user$ | async as user" >Welcome to the home page, {{user.displayName}}</h1>
+      
+      </ng-container>
+      <ng-container *ngSwitchCase="'My Blogs'">
+        <h1 *ngIf="user$ | async as user" >Welcome to the home page, {{user.displayName}}</h1>
+        
+      </ng-container>
+      <ng-container *ngSwitchCase="'Add New Blogs'">
+     
+        <app-addpost></app-addpost>
+      </ng-container>
+      <ng-container *ngSwitchCase="'Setting'">
+     
+        <h1 *ngIf="user$ | async as user" >Welcome to the home page, {{user.displayName}}</h1>
+      </ng-container>
+    </div>
+  
+  </div>
+</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../Shared/auth.service';
-import {Observable} from "rxjs";
+
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,8 +11,10 @@ import {Observable} from "rxjs";
 })
 export class DashboardComponent implements OnInit {
   user$ = this.authService.currentUser$;
+  
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router,) {  }
+ 
 
   ngOnInit(): void {}
 }

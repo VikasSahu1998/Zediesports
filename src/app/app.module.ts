@@ -14,13 +14,15 @@ import { CareerComponent } from './User/career/career.component';
 import { ContantUsComponent } from './User/contant-us/contant-us.component';
 import { IGCComponent } from './User/EsportsNews/igc/igc.component';
 import { WGCComponent } from './User/EsportsNews/wgc/wgc.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { provideStorage,getStorage } from '@angular/fire/storage';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideDatabase, getDatabase } from '@angular/fire/database';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { provideStorage, getStorage } from '@angular/fire/storage';
 import { DashboardComponent } from './User/dashboard/dashboard.component';
+import { AddpostComponent } from './User/dashboard/addpost/addpost.component';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { DashboardComponent } from './User/dashboard/dashboard.component';
     CareerComponent,
     IGCComponent,
     WGCComponent,
-    DashboardComponent
+    DashboardComponent,
+    AddpostComponent
   ],
   imports: [
     BrowserModule,
