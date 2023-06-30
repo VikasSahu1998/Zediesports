@@ -21,7 +21,8 @@ import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { DashboardComponent } from './User/dashboard/dashboard.component';
-import { AddpostComponent } from './User/dashboard/addpost/addpost.component';
+
+import { NoteComponent } from './note/note.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { AddpostComponent } from './User/dashboard/addpost/addpost.component';
     IGCComponent,
     WGCComponent,
     DashboardComponent,
-    AddpostComponent
+
+    NoteComponent
   ],
   imports: [
     BrowserModule,

@@ -1,18 +1,16 @@
 <div id="main-content" class="blog-page">
     <div class="container">
         <div class="row clearfix">
-            <div class="col-lg-8 col-md-12 left-box">
-                <div class="card single_post">
-                    <div class="body">
+            <div class="col-lg-8 col-md-12 left-box" >
+                <div class="card single_post" *ngFor="let note of notesData">
+                    <div class="body" >
                         <div class="img-post">
                             <img class="d-block img-fluid"
                                 src="https://onclickwebdesign.com/wp-content/uploads/purple_monkey_bg.jpg"
                                 alt="First slide">
                         </div>
-                        <h3><a href="blog-details.html">Monkey Game</a></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, dolore deleniti fuga at
-                            atque suscipit impedit dolores excepturi! Architecto autem voluptas ex consectetur quo
-                            delectus quod id in quidem qui.</p>
+                        <h3><a >{{note.note_title}}</a></h3>
+                        <p>{{note.note_dec}}</p>
                     </div>
                     <div class="footer">
                         <div class="actions">
@@ -27,7 +25,7 @@
                     </div>
                 </div>
 
-                <div class="card single_post">
+                <!-- <div class="card single_post">
                     <div class="body">
                         <div class="img-post">
                             <img class="d-block img-fluid"
@@ -97,7 +95,7 @@
                             <li><a href="#" class="bi bi-chat-right">128</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
 
                 <ul class="pagination pagination-primary">
                     <li class="page-item"><a class="page-link" href="#">Previous</a></li>
